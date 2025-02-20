@@ -33,7 +33,7 @@ export function SubscriptionForm() {
       </h2>
       <div className="space-y-3">
         <div className="space-y-2">
-          <InputRoot>
+          <InputRoot error={!!errors.name}>
             <InputIcon>
               <User />
             </InputIcon>
@@ -50,7 +50,7 @@ export function SubscriptionForm() {
         </div>
 
         <div className="space-y-2">
-          <InputRoot>
+          <InputRoot error={!!errors.email}>
             <InputIcon>
               <Mail />
             </InputIcon>
