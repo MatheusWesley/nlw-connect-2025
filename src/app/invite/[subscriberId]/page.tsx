@@ -1,13 +1,23 @@
 import Image from "next/image";
 
 
-import logo from "../../assets/logo.svg";
+import logo from "../../../assets/logo.svg";
 import { InviteLinkInput } from "./invite-link-input";
 import { InviteRanking } from "./ranking";
 import { InviteStats } from "./stats";
 
-export default function InvitePage() {
-  const inviteLink = "devstage.com/codecraft-summit-2025";
+
+interface InvitePageProps {
+  params: Promise<{
+    subscriberId: string;
+  }>
+}
+
+export default async function InvitePage(props: InvitePageProps) {
+  const { subscriberId } = await props.params;
+
+
+  const inviteLink = `https://localhost:3333/invites/${subscriberId}`;
 
   return (
     <div className="min-h-dvh flex items-center justify-between gap-16 flex-col md:flex-row">
